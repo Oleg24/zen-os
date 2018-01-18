@@ -1,0 +1,16 @@
+{
+  "name": "contracts.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg Yanchinskiy <o.yanchinskiy@gmail.com> (http://oleg24.com)",
+  "license": "ISC"
+}
