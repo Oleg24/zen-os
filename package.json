@@ -1,0 +1,16 @@
+{
+  "name": "zenOS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "scripts": {
+    "start": "concurrently \"cd api && npm run dev\" \"cd client && npm start\"",
+    "build": "cd client && npm build"
+  },
+  "author": "Oleg Yanchinskiy <o.yanchinskiy@gmail.com> (http://oleg24.com)",
+  "license": "ISC"
+}
