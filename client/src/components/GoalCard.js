@@ -1,21 +1,23 @@
 import React, { Component } from "react";
-import {
-	Card,
-	CardActions,
-	CardHeader,
-	CardTitle,
-	CardText
-} from "material-ui/Card";
+import Paper from "material-ui/Paper";
+import Divider from "material-ui/Divider";
 import "../styles/goal-card.css";
 
 class GoalCard extends Component {
 	render() {
 		return (
-			<Card>
-				<CardHeader title={this.props.title} />
-				<CardText>Goal Description {this.props.description}</CardText>
-				<CardText>Goal Outcome {this.props.outcome}</CardText>
-			</Card>
+			<Paper className="goal-card">
+				<div className="goal-card__title">{this.props.title}</div>
+				<Divider />
+				<div className="goal-card__text">
+					<span className="label left">Goal - </span>
+					{this.props.description}
+				</div>
+				<div className="goal-card__text">
+					<span className="label left">Outcome - </span>
+					{this.props.outcome}
+				</div>
+			</Paper>
 		);
 	}
 }
