@@ -1,17 +1,19 @@
+import { combineReducers } from "redux";
 import tempGoals from "../constants/temp-data";
+import { REQUEST_GOALS, RECEIVE_GOALS } from "../actions/actions";
 
-const goals = (state = tempGoals.goals, action) => {
+const goals = (state = { isFetching: false, items: [] }, action) => {
 	switch (action.type) {
-		case "ADD_GOAL":
-			return [
-				...state,
-				{
-					id: action.id,
-					title: action.title,
-					description: action.description,
-					outcome: action.outcome
-				}
-			];
+		case REQUEST_GOALS:
+			return Object.assign({}, state, {
+				isFetching: true
+			});
+		case RECEIVE_GOALS:
+			return Object.assign({}, state, {
+				isFetching: false,
+				items: action.goals,
+				lastUpdated: action.receivedAt
+			});
 		default:
 			return state;
 	}

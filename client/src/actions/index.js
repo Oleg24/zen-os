@@ -1,8 +1,8 @@
-import { TOGGLE_GOALS_MODAL } from "./action-types";
+import { REQUEST_GOALS, RECEIVE_GOALS } from "./actions";
 
-export const toggleGoalsModal = modal => {
-	return {
-		type: TOGGLE_GOALS_MODAL,
-		modal
-	};
-};
+// export const receiveGoalsFailure = (event) => {
+//   return {
+//     type: ADD_EVENT,
+//     event: Object.assign({}, event, {id: nextToDoId++})
+//   }
+// }

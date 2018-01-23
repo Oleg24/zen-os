@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import GoalCard from "../components/GoalCard";
+import { fetchGoals } from "../actions/actions";
 import Grid from "material-ui/Grid";
 import "../styles/goal-card.css";
 
@@ -14,7 +15,7 @@ const styles = {
 	}
 };
 
-const GoalsList = ({ goals }) => (
+const GoalsList = ({ goals, fetchGoals }) => (
 	<div style={styles.root}>
 		<Grid
 			className="goals-container"
@@ -22,7 +23,7 @@ const GoalsList = ({ goals }) => (
 			spacing={8}
 			justify={"space-around"}
 		>
-			{goals.map(goal => (
+			{goals.items.map(goal => (
 				<Grid item style={styles.card} xs={12} sm={3} key={goal.id}>
 					<GoalCard {...goal} />
 				</Grid>
@@ -37,6 +38,14 @@ const mapStateToProps = state => {
 	};
 };
 
-const GoalsContainer = connect(mapStateToProps)(GoalsList);
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchGoals: () => {
+			dispatch(fetchGoals());
+		}
+	};
+};
+
+const GoalsContainer = connect(mapStateToProps, mapDispatchToProps)(GoalsList);
 
 export default GoalsContainer;

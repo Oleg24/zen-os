@@ -1,8 +1,8 @@
 {
   "apps" : [{
-    "name"        : "contracts.io-api",
-    "script"      : "./index.js",
-    "watch"       : true,
+    "name": "contracts.io-api",
+    "script": "./index.js",
+    "watch": true,
     "env": {
       "NODE_ENV": "development",
       "CONTRACTS_PORT": 8010,

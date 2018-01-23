@@ -1,1 +1,0 @@
-export const TOGGLE_GOALS_MODAL = "TOGGLE_GOALS_MODAL";
