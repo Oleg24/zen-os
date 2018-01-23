@@ -24,7 +24,8 @@ const tempData = {
 			description: "finish ethereum developer course",
 			outcome: "create a dApp"
 		}
-	]
+	],
+	goalModalOpen: false
 };
 
 export default tempData;
