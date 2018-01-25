@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import GoalCard from "../components/GoalCard";
-import Grid from "material-ui/Grid";
 import { fetchGoals } from "../actions/actions";
 import GoalsList from "../components/GoalsList";
 import "../styles/goal-card.css";

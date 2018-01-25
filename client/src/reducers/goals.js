@@ -1,5 +1,3 @@
-import { combineReducers } from "redux";
-import tempGoals from "../constants/temp-data";
 import { REQUEST_GOALS, RECEIVE_GOALS } from "../actions/actions";
 
 const goals = (state = { isFetching: false, items: [] }, action) => {

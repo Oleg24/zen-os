@@ -8,7 +8,6 @@ import { createLogger } from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import "./index.css";
 import App from "./App";
-import RootRouter from "./RootRouter";
 import registerServiceWorker from "./registerServiceWorker";
 
 const loggerMiddleware = createLogger();
@@ -23,3 +22,4 @@ ReactDOM.render(
 	document.getElementById("root")
 );
 registerServiceWorker();
+
