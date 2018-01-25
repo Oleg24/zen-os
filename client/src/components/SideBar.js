@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Button from "material-ui/Button";
+import AddIcon from "material-ui-icons/Add";
 import appConstants from "../constants/app-constants";
+import { Link } from "react-router-dom";
 import "../styles/side-bar.css";
-
-// <i class="material-icons">face</i>
 
 const SideBarItem = ({ icon, selectItem, name }) => {
 	return (
@@ -20,6 +21,17 @@ class SideBar extends Component {
 	render() {
 		return (
 			<div className="side-bar">
+				<Link to="/newgoal">
+					<Button
+						fab
+						mini
+						color="primary"
+						aria-label="add"
+						className="side-bar__item"
+					>
+						<AddIcon />
+					</Button>
+				</Link>
 				{appConstants.sideBarItems.map(item => {
 					return (
 						<SideBarItem

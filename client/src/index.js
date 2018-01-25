@@ -3,20 +3,18 @@ import ReactDOM from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import { Provider } from "react-redux";
 import goalsApp from "./reducers";
-import thunkMiddleware from "redux-thunk";
+import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import "./index.css";
 import App from "./App";
+import RootRouter from "./RootRouter";
 import registerServiceWorker from "./registerServiceWorker";
 
 const loggerMiddleware = createLogger();
 
 injectTapEventPlugin();
-let store = createStore(
-	goalsApp,
-	applyMiddleware(thunkMiddleware, loggerMiddleware)
-);
+let store = createStore(goalsApp, applyMiddleware(thunk, loggerMiddleware));
 
 ReactDOM.render(
 	<Provider store={store}>
