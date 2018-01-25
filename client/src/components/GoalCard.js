@@ -15,7 +15,7 @@ class GoalCard extends Component {
 				</div>
 				<div className="goal-card__text">
 					<span className="label left">Outcome - </span>
-					{this.props.outcome}
+					{this.props.outcomes}
 				</div>
 			</Paper>
 		);

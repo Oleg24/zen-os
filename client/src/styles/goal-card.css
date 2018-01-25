@@ -8,6 +8,9 @@
 
 .goals-container {
 	padding: 25px 10px 10px 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
 }
 
 .goal-card__title {
