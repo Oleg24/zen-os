@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchGoals } from "../actions/actions";
 import GoalsList from "../components/GoalsList";
-import "../styles/goal-card.css";
 
 const styles = {
 	root: {

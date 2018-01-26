@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextField, Input, FormLabel } from "material-ui";
+import { TextField, Input, FormLabel, Button } from "material-ui";
 
 const styles = {
 	container: {
@@ -25,6 +25,10 @@ class NewGoal extends Component {
 		this.setState({
 			[name]: event.target.value
 		});
+	};
+
+	handleSubmit = () => {
+		this.props.onSubmit(this.state);
 	};
 
 	render() {
@@ -53,6 +57,9 @@ class NewGoal extends Component {
 						onChange={this.handleChange("outcomes")}
 						margin="normal"
 					/>
+					<Button raised color="primary" onClick={this.handleSubmit}>
+						Submit Goal
+					</Button>
 				</form>
 			</div>
 		);

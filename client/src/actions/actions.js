@@ -1,6 +1,8 @@
-import fetch from "cross-fetch";
+import axios from "axios";
 export const REQUEST_GOALS = "REQUEST_GOALS";
 export const RECEIVE_GOALS = "RECEIVE_GOALS";
+export const REQUEST_SAVE_GOALS = "REQUEST_SAVE_GOALS";
+export const RECEIVE_SAVED_GOALS = "RECEIVE_SAVED_GOALS";
 
 export const requestGoals = () => {
 	return {
@@ -20,10 +22,39 @@ export function fetchGoals() {
 	return function(dispatch) {
 		dispatch(requestGoals());
 
-		return fetch("/api/goals")
+		return axios
+			.get("/api/goals")
 			.then(
-				response => response.json(),
+				response => response.data,
 				error => console.log("an error occurred", error)
+			)
+			.then(response => dispatch(receiveGoals(response)));
+	};
+}
+
+export const startSave = () => {
+	return {
+		type: REQUEST_SAVE_GOALS
+	};
+};
+
+export const receiveSavedGoal = json => {
+	return {
+		type: RECEIVE_SAVED_GOALS,
+		goals: json
+	};
+};
+
+export function saveGoals(goal) {
+	console.log("goal to save", goal);
+	return function(dispatch) {
+		dispatch(startSave());
+
+		return axios
+			.post("/api/goals", goal)
+			.then(
+				response => JSON.stringify(response),
+				error => console.log("an error occured while saving", error)
 			)
 			.then(json => dispatch(receiveGoals(json)));
 	};
