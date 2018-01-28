@@ -1,4 +1,6 @@
 import axios from "axios";
+import { BrowserRouter } from "react-router-dom";
+import history from "../history";
 export const REQUEST_GOALS = "REQUEST_GOALS";
 export const RECEIVE_GOALS = "RECEIVE_GOALS";
 export const REQUEST_SAVE_GOALS = "REQUEST_SAVE_GOALS";
@@ -46,16 +48,18 @@ export const receiveSavedGoal = json => {
 };
 
 export function saveGoals(goal) {
-	console.log("goal to save", goal);
 	return function(dispatch) {
 		dispatch(startSave());
 
 		return axios
 			.post("/api/goals", goal)
 			.then(
-				response => JSON.stringify(response),
+				response => response.data,
 				error => console.log("an error occured while saving", error)
 			)
-			.then(json => dispatch(receiveGoals(json)));
+			.then(response => {
+				history.push("/");
+				return dispatch(receiveGoals(response));
+			});
 	};
 }

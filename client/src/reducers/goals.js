@@ -33,7 +33,6 @@ const goals = (
 				isFetching: true
 			});
 		case RECEIVE_GOALS:
-			console.log(action.goals);
 			return Object.assign({}, state, {
 				isFetching: false,
 				items: action.goals

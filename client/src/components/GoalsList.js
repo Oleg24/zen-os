@@ -22,11 +22,11 @@ export default class GoalsList extends Component {
 	render() {
 		const { isFetching, items, loadingLabel } = this.props;
 
-		const isEmpty = items.length === 0;
+		const isEmpty = items && items.length === 0;
 		if (isEmpty && isFetching) {
 			return (
 				<h2>
-					<i>{loadingLabel}</i>
+					<div>{loadingLabel}</div>
 				</h2>
 			);
 		}

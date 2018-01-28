@@ -14,7 +14,9 @@ class GoalsContainer extends Component {
 	static propTypes = {};
 
 	componentWillMount() {
-		this.props.fetchGoals();
+		if (!this.props.goals.length) {
+			this.props.fetchGoals();
+		}
 	}
 
 	render() {
